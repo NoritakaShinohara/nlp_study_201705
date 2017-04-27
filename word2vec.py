@@ -10,4 +10,4 @@ model = Word2Vec.load(model_path)
 
 out=model.most_similar(positive=[u'行く'])
 for x in out:
-    print x[0],x[1]
+    print(x[0],x[1])
