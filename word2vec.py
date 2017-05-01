@@ -8,6 +8,21 @@ from gensim.models.word2vec import Word2Vec
 model_path = 'word2vec.gensim.model'
 model = Word2Vec.load(model_path)
 
+"""
+    単語ベクトルの確認
+"""
+model.wv['行く']
+
+
+"""
+    入力されたワードと同じベクトル関係にあるもの
+"""
 out=model.most_similar(positive=[u'行く'])
 for x in out:
     print(x[0],x[1])
+
+"""
+    コサイン類似度
+"""
+model.wv.similarity('打ち合わせ', '挨拶')
+model.wv.similarity('打ち合わせ', '営業')
