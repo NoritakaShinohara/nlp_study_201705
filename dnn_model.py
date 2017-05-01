@@ -21,7 +21,7 @@ def create_model(max_features):
     model.add(Dense(1))
     model.add(Activation('linear'))
 
-    model.compile(loss='binary_crossentropy',
+    model.compile(loss='mse',
               optimizer='rmsprop',
               metrics=['accuracy'])
 
