@@ -4,7 +4,7 @@ import zipfile, io
 import pandas as pd
 import glob
 from ex_tokenize import tokenize
-from dnn_model import create_model
+from dnn_model import create_model_lstm
 
 from keras.preprocessing import sequence
 from keras.preprocessing.text import Tokenizer
@@ -24,7 +24,7 @@ seq = tokenizer.texts_to_sequences(tokenized_text_list)
 X = sequence.pad_sequences(seq, maxlen=400)
 Y = df.score
 
-model = create_model(5000)
-model.fit(X, Y, epochs=1000, shuffle=True)
+model = create_model_lstm(5000)
+model.fit(X, Y, epochs=15, shuffle=True, validation_split=0.1)
 
 # model.summary()

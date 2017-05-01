@@ -8,9 +8,10 @@ from keras.layers.recurrent import LSTM
 
 # https://hogehuga.com/post-1464/
 
-def create_model(max_features):
+def create_model_lstm(max_features):
     """
         max_features = 正の整数．語彙数．入力データの最大インデックス + 1
+        LSTMを使った学習。つまり時系列データを扱うもの
     """
 
     model = Sequential()
