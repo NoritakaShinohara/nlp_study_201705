@@ -25,6 +25,6 @@ X = sequence.pad_sequences(seq, maxlen=400)
 Y = df.score
 
 model = create_model(5000)
-# model.fit(X, Y)
+model.fit(X, Y)
 
-model.summary()
+# model.summary()
