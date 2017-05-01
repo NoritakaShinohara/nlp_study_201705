@@ -5,6 +5,7 @@ import pandas as pd
 import glob
 from ex_tokenize import tokenize
 from dnn_model import create_model_lstm
+from ai_check import print_predict_result
 
 from keras.preprocessing import sequence
 from keras.preprocessing.text import Tokenizer
@@ -27,4 +28,4 @@ Y = df.score
 model = create_model_lstm(5000)
 model.fit(X, Y, epochs=15, shuffle=True, validation_split=0.1)
 
-# model.summary()
+print_predict_result(model, X, Y)
