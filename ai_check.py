@@ -26,7 +26,8 @@ from itertools import chain
 def print_predict_result(estimator, x_input, y_correct):
     # ROC
     scores = estimator.predict_proba(x_input)
-    print('roc_auc_score: %.3f' % roc_auc_score(y_true=y_correct, y_score=scores))
+    # print('roc_auc_score: %.3f' % roc_auc_score(y_true=y_correct, y_score=scores))
+    print(scores)
 
     y_pred = estimator.predict(x_input)
     flatten_y_pred = list(chain.from_iterable(y_pred))
