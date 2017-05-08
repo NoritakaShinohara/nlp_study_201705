@@ -18,4 +18,6 @@ model = create_model_lstm(5000)
 model.fit(X_tokenize, Y, epochs=15, shuffle=True, validation_split=0.1)
 
 y_pred = model.predict(X_tokenize)
-print(y_pred)
+
+# AIと実際のデータにどれくらいの差があるか
+evaluate_regression(Y, y_pred)
