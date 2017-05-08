@@ -13,7 +13,7 @@ from keras.preprocessing.text import Tokenizer
 X, Y = yahoo_reviews()
 X_tokenize = tokenize_reviews(X)
 
-5,000という数字は適当です。（入力語彙数）
+# 5,000という数字は適当です。（入力語彙数）
 model = create_model_lstm(5000)
 model.fit(X_tokenize, Y, epochs=15, shuffle=True, validation_split=0.1)
 
