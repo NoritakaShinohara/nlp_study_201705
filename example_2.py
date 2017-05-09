@@ -63,6 +63,11 @@ def max_length_in_sentence_vectors(X):
     sentence_vectors_length = [len(vectors.split()) for vectors in X]
     return np.max(sentence_vectors_length)
 
+"""
+データを学習して、学習できるか。
+モデルの性能はどれくらい出るかを確認してみる。ただし、トレーニングデータ内で。
+"""
+
 word_embedding_dim = 50
 
 X, Y = yahoo_reviews()
