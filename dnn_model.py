@@ -54,8 +54,6 @@ def create_model_example3(input_shape):
     model.add(Activation('relu'))
     model.add(Dropout(0.2))
 
-
-
     #出力層
     model.add(Dense(1)) # 全結合NN
     model.add(Activation('linear'))
