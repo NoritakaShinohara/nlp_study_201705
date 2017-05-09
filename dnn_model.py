@@ -27,3 +27,17 @@ def create_model_lstm(max_features):
               metrics=['accuracy'])
 
     return model
+
+def create_model_example2(input_shape):
+    model = Sequential()
+    model.add(LSTM(128, input_shape=input_shape))
+
+    #出力層
+    model.add(Dense(1))
+    model.add(Activation('linear'))
+
+    model.compile(loss='mse',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+    return model
