@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Embedding
 from keras.layers import Convolution1D, MaxPooling1D
-from keras.layers.recurrent import LSTM
+from keras.layers.recurrent import LSTM, GRU, Dropout
 
 # https://hogehuga.com/post-1464/
 
@@ -31,6 +31,23 @@ def create_model_lstm(max_features):
 def create_model_example2(input_shape):
     model = Sequential()
     model.add(LSTM(128, input_shape=input_shape))
+
+    #出力層
+    model.add(Dense(1))
+    model.add(Activation('linear'))
+
+    model.compile(loss='mse',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+    return model
+
+def create_model_example3(input_shape):
+    model = Sequential()
+    model.add(GRU(256, input_shape=input_shape))
+
+    # ドロップアウト層
+    model.add(Dropout(0.1))
 
     #出力層
     model.add(Dense(1))
