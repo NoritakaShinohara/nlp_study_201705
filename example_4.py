@@ -85,11 +85,12 @@ max_length = max_length_in_sentence_vectors(X)
 X_size = len(X) # 学習データ数
 max_words_count = max_length + 10 # 最大文長
 
-# model = create_model_example3(input_shape=(max_words_count, word_embedding_dim))
 model = load_model("my_nlp_model.hdf5")
 
-free_words = ["すごく楽しい", "全然面白くない", "誹謗中傷が酷い"]
+free_words = ["色々な人と話せて、すごく楽しい", "内容が全然面白くない", "誹謗中傷が酷い"]
+free_words = [wakati(x) for x in free_words]
 free_word_vectors = create_sentence_vector(free_words, max_words_count, word_embedding_dim)
+print(free_words)
 result = model.predict(free_word_vectors)
 
 """
