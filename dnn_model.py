@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Embedding
 from keras.layers import Convolution1D, MaxPooling1D
-from keras.layers.recurrent import LSTM, GRU, Dropout
+from keras.layers.recurrent import LSTM, GRU
 
 # https://hogehuga.com/post-1464/
 
