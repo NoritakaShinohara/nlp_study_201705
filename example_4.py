@@ -77,5 +77,6 @@ max_words_count = max_length + 10 # 最大文長
 
 X_sentence = create_sentence_vector(X, max_words_count, word_embedding_dim)
 
-model = create_model_example3(input_shape=(max_words_count, word_embedding_dim))
-model.load_model("my_nlp_model.hdf5")
+# model = create_model_example3(input_shape=(max_words_count, word_embedding_dim))
+from keras.models import load_model
+mode = load_model("my_nlp_model.hdf5")
