@@ -78,9 +78,10 @@ max_words_count = max_length + 10 # 最大文長
 X_sentence = create_sentence_vector(X, max_words_count, word_embedding_dim)
 
 model = create_model_example3(input_shape=(max_words_count, word_embedding_dim))
-model.fit(X_sentence, Y, epochs=15, shuffle=True, validation_split=0.1)
+model.fit(X_sentence, Y, epochs=100, shuffle=True, validation_split=0.1)
 
 y_pred = model.predict(X_sentence)
 
 # AIと実際のデータにどれくらいの差があるか
 evaluate_regression(Y, y_pred)
+model.save("my_nlp_model.hdf5")
