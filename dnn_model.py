@@ -6,7 +6,6 @@ from keras.layers import Embedding
 from keras.layers import Convolution1D, MaxPooling1D
 from keras.layers.recurrent import LSTM, GRU
 
-# https://hogehuga.com/post-1464/
 
 def create_model_lstm(max_features):
     """
