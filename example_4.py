@@ -89,7 +89,7 @@ X_sentence = create_sentence_vector(X, max_words_count, word_embedding_dim)
 # model = create_model_example3(input_shape=(max_words_count, word_embedding_dim))
 model = load_model("my_nlp_model.hdf5")
 
-free_words = ["素晴らしい", "面白い", "酷い"]
+free_words = ["素晴らしいWebサイト", "人と話せて面白い", "中傷が酷い"]
 free_word_vectors = create_sentence_vector(free_words, max_words_count, word_embedding_dim)
 result = model.predict(free_word_vectors)
 print(result)
