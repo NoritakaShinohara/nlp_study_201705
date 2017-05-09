@@ -12,6 +12,8 @@ from keras.preprocessing.text import Tokenizer
 
 from ex_word2vec import word2vec_model
 import numpy as np
+from keras.models import load_model
+from mecab_wakati import wakati
 
 w2v_model = word2vec_model()
 
@@ -63,6 +65,13 @@ def max_length_in_sentence_vectors(X):
     sentence_vectors_length = [len(vectors.split()) for vectors in X]
     return np.max(sentence_vectors_length)
 
+def free_input_to_vector(word):
+    """
+    自由入力をベクトル化する。
+    """
+
+
+
 """
 example_2で十分な性能が出なかった場合、NNを調整して精度をあげてみる
 """
@@ -78,5 +87,9 @@ max_words_count = max_length + 10 # 最大文長
 X_sentence = create_sentence_vector(X, max_words_count, word_embedding_dim)
 
 # model = create_model_example3(input_shape=(max_words_count, word_embedding_dim))
-from keras.models import load_model
-mode = load_model("my_nlp_model.hdf5")
+model = load_model("my_nlp_model.hdf5")
+
+free_words = ["素晴らしい", "面白い", "酷い"]
+free_word_vectors = create_sentence_vector(free_words, max_words_count, word_embedding_dim)
+result = model.predict(free_word_vectors)
+print(result)
