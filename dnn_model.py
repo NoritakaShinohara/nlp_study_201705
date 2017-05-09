@@ -49,8 +49,15 @@ def create_model_example3(input_shape):
     # ドロップアウト層
     model.add(Dropout(0.1))
 
+    # 隠れ層に１個追加してみる
+    model.add(Dense(256))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+
+
     #出力層
-    model.add(Dense(1))
+    model.add(Dense(1)) # 全結合NN
     model.add(Activation('linear'))
 
     model.compile(loss='mse',
