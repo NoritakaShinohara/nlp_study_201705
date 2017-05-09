@@ -54,6 +54,7 @@ def sentence_2D_vector(words, word_embedding_dim):
             word_vector = w2v_model.wv[word]
             sentence_vector = np.vstack((sentence_vector, word_vector))
         except Exception as e:
+            print(e)
             pass
 
     return sentence_vector
