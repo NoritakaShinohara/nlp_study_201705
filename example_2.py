@@ -4,7 +4,7 @@ import zipfile, io
 import pandas as pd
 import glob
 from dnn_model import create_model_lstm, create_model_example2
-from ai_check import print_predict_result, evaluate_regression
+from ai_check import evaluate_regression
 from data_set import yahoo_reviews, tokenize_reviews
 
 from keras.preprocessing import sequence
@@ -65,7 +65,10 @@ def max_length_in_sentence_vectors(X):
     return np.max(sentence_vectors_length)
 
 """
-example1では、
+example1では、学習データの中でトークン化を行い
+学習させていた。
+
+今回は、学習データにない単語を検証で使いたい場合にword2vecを使って文章ベクトルを作って学習させてみる。
 """
 
 word_embedding_dim = 50

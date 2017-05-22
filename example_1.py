@@ -4,7 +4,7 @@ import zipfile, io
 import pandas as pd
 import glob
 from dnn_model import create_model_lstm
-from ai_check import print_predict_result, evaluate_regression
+from ai_check import evaluate_regression
 from data_set import yahoo_reviews, tokenize_reviews
 
 from keras.preprocessing import sequence
