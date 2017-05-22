@@ -52,6 +52,9 @@ def create_model_lstm(max_features):
 
 def create_model_example2(input_shape):
     model = Sequential()
+    """
+    分散表現を行う層だった、Embeddingを抜いている
+    """
     model.add(LSTM(128, input_shape=input_shape))
 
     #出力層
@@ -59,13 +62,15 @@ def create_model_example2(input_shape):
     model.add(Activation('linear'))
 
     model.compile(loss='mse',
-              optimizer='rmsprop',
-              metrics=['accuracy'])
+              optimizer='rmsprop')
 
     return model
 
 def create_model_example3(input_shape):
     model = Sequential()
+    """
+    自分でカスタムしてみる。
+    """
     model.add(GRU(256, input_shape=input_shape))
 
     # ドロップアウト層

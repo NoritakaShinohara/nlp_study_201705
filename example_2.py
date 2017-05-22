@@ -18,6 +18,7 @@ w2v_model = word2vec_model()
 def create_sentence_vector(X, max_word_length, word_embedding_dim):
     """
     文章ベクトルを生成する
+    中身的には分散表現した単語を配列に入れている感じ。
     """
 
     fill_vector = np.empty((0, max_word_length, word_embedding_dim))
@@ -64,8 +65,7 @@ def max_length_in_sentence_vectors(X):
     return np.max(sentence_vectors_length)
 
 """
-データを学習して、学習できるか。
-モデルの性能はどれくらい出るかを確認してみる。ただし、トレーニングデータ内で。
+example1では、
 """
 
 word_embedding_dim = 50
