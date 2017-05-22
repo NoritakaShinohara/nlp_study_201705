@@ -22,8 +22,7 @@ def create_model_lstm(max_features):
     model.add(Activation('linear'))
 
     model.compile(loss='mse',
-              optimizer='rmsprop',
-              metrics=['accuracy'])
+              optimizer='rmsprop')
 
     return model
 
