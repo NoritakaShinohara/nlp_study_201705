@@ -20,7 +20,7 @@ def yahoo_reviews():
 
 def tokenize_reviews(reviews):
     """
-    kerasにデフォで入っている、トークン化メソッドでトークン化
+    kerasにデフォで入っている、トークン化メソッドでトークン化 （文章を配列にする）
     """
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(reviews)

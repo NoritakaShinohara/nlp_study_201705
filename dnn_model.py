@@ -14,13 +14,37 @@ def create_model_lstm(max_features):
     """
 
     model = Sequential()
+    """
+    Embedding層は分散表現を行う層らしいです。
+    """
     model.add(Embedding(max_features, output_dim=256))
     model.add(LSTM(128))
 
     #出力層
+    """
+    回帰問題を解いているので、もちろん出力層の次元数は1こ
+    """
     model.add(Dense(1))
+    """
+    活性化関数はLinear
+    https://cdn-ak.f.st-hatena.com/images/fotolife/i/imslotter/20170112/20170112005543.png
+    """
     model.add(Activation('linear'))
 
+    """
+    目的関数は、mean_squared_error(mse)
+    kerasで使える目的関数は以下
+    https://keras.io/ja/objectives/
+
+    mseとは平均二乗誤差
+    http://www5e.biglobe.ne.jp/~emm386/2016/distance/euclid01.html
+
+    rmspropは最適化アルゴリズムの一つ
+    rmspropを選んだ理由は、RNNに向いているとかなんとか聞いたから。
+    目的関数の値を最小にするための勾配の進み方
+
+    http://postd.cc/optimizing-gradient-descent/
+    """
     model.compile(loss='mse',
               optimizer='rmsprop')
 
