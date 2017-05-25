@@ -17,7 +17,7 @@ model.wv['行く']
 """
     入力されたワードと同じベクトル関係にあるもの
 """
-out=model.most_similar(positive=[u'行く'])
+out=model.most_similar(positive=[u'コンティネンタルサーカス'])
 for x in out:
     print(x[0],x[1])
 
